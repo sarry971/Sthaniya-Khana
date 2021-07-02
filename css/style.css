@@ -1,0 +1,257 @@
+/*
+    Author: Saurav Rauniyar
+    Theme: Sthaniya Khana
+    Version: 1.0
+*/
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+*{
+    margin: 0 0;
+    padding: 0 0;
+    font-family: 'Satisfy', cursive;
+    
+}
+
+h2{
+    color: rgb(68, 67, 67);
+    font-size: 2rem;
+}
+
+/* CSS for all*/
+.container{
+    width: 97vw;
+    margin: 0 auto;
+    padding: 0.5rem;
+    
+}
+
+.img-responsive{
+    width: 100%;
+    height: 100%;
+}
+
+.img-curve{
+    border-radius: 1rem;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-center{
+    text-align:center;
+}
+
+.clearfix{
+    clear: both;
+    float: none;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    font-size:1.5rem;
+    transition: all 500ms;
+    font-size-adjust: 20px;
+    font-weight: bold;
+}
+
+.btn{
+    padding: 0.3rem;
+    background-color: #F7F4F2;
+    font-size: large;
+    border-radius: 1rem;
+}
+.btn-primary{
+    background-color: rgb(68, 67, 67);
+    color: white;
+    cursor: pointer;
+}
+
+.btn-primary:hover{
+    background-color: black;
+}
+
+.float-container{
+    position: relative;
+}
+
+.float-text{
+    position: absolute;
+    left: 40%;
+}
+
+/*CSS for navbar section*/
+
+.container{
+    background-color: #F7F4F2;
+}
+
+.logo{
+    margin-left: 5rem;
+    width: 8vw;
+    height: 15vh;
+    float: left;
+}
+
+.menu{
+    line-height: 12vh;
+    margin-right: 5rem;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li{
+    display: inline;
+    padding: 1rem;
+}
+
+/*CSS for food search section*/
+
+.food-search{
+    background-image: url(../images/background.jpg);
+    padding:20vh 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.food-search .container{
+    background: none;
+}
+
+.food-search h2{
+    font-size: 2.5rem;
+}
+
+.food-search .container input{
+    width: 42vw;
+    height: 6vh;
+    padding: 0.2rem 5vw;
+    font-size: 1rem;
+    border-radius: 1rem;
+}
+
+/* CSS for explore food*/
+
+.categories{
+    padding: 4rem 0;
+}
+
+.categories .container{
+    padding: 3rem 0;
+    background-color: #F7F4F2;
+}
+
+.box-1{
+    width: 30vw;
+    float:left;
+    margin: 0.6rem;
+}
+
+/*CSS for food menu*/
+
+.food-menu{
+    padding: 0 0 2rem 0;
+
+}
+
+.food-menu .container{
+    padding: 3rem 0 0 0;
+    background-color: #f7f4f2;
+}
+
+.food-menu-box{
+    width: 43vw;
+    margin: 1rem;
+    float: left;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.food-menu img{
+    width: 18vw;
+    height: 40vh;
+    float: left;
+}
+
+.food-menu-desc{
+    width: 18vw;
+    float: left;
+    margin-left: 2vw;
+}
+
+.food-price{
+    font-size: 1.2rem;
+    margin: 0.2rem 0;
+}
+
+.food-details{
+    font-size: 0.8rem;
+}
+
+/*CSS for social*/
+
+.social .container{
+    background-color: #F7F4F2;
+}
+.social ul{
+    list-style: none;
+}
+
+.social ul li{
+    display: inline;
+    padding: 0.4rem;
+}
+
+
+/* CSS for smaller size*/
+
+@media only screen and (max-width:768px){
+    .logo{
+        width: 50vw;
+        height: 50vh;
+        float: none;
+        margin: 1% auto;
+    }
+    
+    .menu ul{
+        text-align: center;
+        font-size: small;
+
+    }
+
+    .box-1{
+        width: 90vw;
+        float:none;
+        margin: 2rem 0 0 0.8rem;
+    }
+    
+    .food-menu-box{
+        width: 80vw;
+        margin: 1rem;
+        float: none;
+        padding: 1rem;
+        background-color: white;
+        border-radius: 1rem;
+    }
+    
+    .food-menu img{
+        width: 60vw;
+        height: 40vh;
+        margin: 0 3rem 0 3rem;
+        float: none;
+    }
+    
+    .food-menu-desc{
+        width: 40vw;
+        float: none;
+        margin: 0 0 0 6rem;
+    }
+    
+    
+}

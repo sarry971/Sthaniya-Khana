@@ -27,6 +27,71 @@
     clear: both;
 }
 
+.tbl-full{
+    width: 100%;
+}
+
+.tbl-30{
+    width:40vw;
+    height: 20vw;
+    margin-left: 15rem;
+}
+.tbl-30 input{
+    width: 30vw;
+    padding: 0.4rem 0 0.4rem 0.6rem;
+    border-radius: 1rem;
+}
+
+.tbl-30 button{
+    margin-left: 5rem;
+}
+
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 0.4rem;
+    text-align: left;
+}
+
+table tr td{
+    padding: 0.4rem;
+    text-align: left;
+}
+
+.btn-primary{
+    background-color: #1e90ff ;
+    color: black;
+    padding: 0.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 1rem;
+}
+.btn-primary:hover{
+    background-color: #3742fa;
+}
+
+.btn-secondary{
+    background-color: #7bed9f ;
+    color: black;
+    padding: 0.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 1rem;
+}
+.btn-secondary:hover{
+    background-color: #2ed573;
+}
+
+.btn-danger{
+    background-color: #ff6b81 ;
+    color: black;
+    padding: 0.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 1rem;
+}
+.btn-danger:hover{
+    background-color: #ff4757;
+}
 /*CSS for menu*/
 
 .menu{

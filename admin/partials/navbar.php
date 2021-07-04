@@ -1,3 +1,10 @@
+
+<?php 
+$myRoot = $_SERVER["DOCUMENT_ROOT"];
+//echo $myRoot;
+include('../config/constants.php');
+
+?>
 <html>
     <head>
         <title>Staniya Khana- Home Page</title> 

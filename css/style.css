@@ -152,6 +152,8 @@ a:hover{
     margin: 0.6rem;
 }
 
+
+
 /*CSS for food menu*/
 
 .food-menu{
@@ -209,6 +211,42 @@ a:hover{
 }
 
 
+/* for Order Section */
+.order{
+    width: 55vw;
+    margin: 1rem auto;
+}
+.order .food-menu-img img{
+    width: 35vw;
+    height: 50vh;
+    margin-top: 2rem;
+}
+
+.order .food-menu-desc{
+    margin-left: 11rem;
+}
+.order-label{
+    margin-bottom: 0.4rem; 
+    font-weight: bold;
+}
+
+.categories .container input {
+    width: 25vw;
+    height: 6vh;
+    padding: 0 0 0 2rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+.input-responsive{
+    width: 50%;
+    padding: 1.2rem;
+    margin-bottom: 3rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
 /* CSS for smaller size*/
 
 @media only screen and (max-width:768px){
@@ -253,5 +291,7 @@ a:hover{
         margin: 0 0 0 6rem;
     }
     
-    
+    .order{
+        width: 100%;
+    }
 }

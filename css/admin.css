@@ -1,0 +1,92 @@
+/*
+    Author: Saurav Rauniyar
+    Theme: Sthaniya Khana - Admin
+    Version: 1.0
+*/
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+*{
+    margin: 0 0;
+    padding: 0 0;
+    font-family: 'Satisfy', cursive;
+    background-color: #F7F4F2;
+    color: black;
+}
+
+.wrapper{
+    padding: 1rem;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.clearfix{
+    float: none;
+    clear: both;
+}
+
+/*CSS for menu*/
+
+.menu{
+    background-color: #F7F4F2 ;
+    border: 1px solid red;  
+    color: black;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li{
+    display: inline;
+    padding: 1rem;
+}
+
+.menu ul li a{
+    text-decoration: none;
+}
+
+.menu ul li a:hover{
+    font-size: 1.5rem;
+    transition: all 500ms;
+    font-size-adjust: 20px;
+    font-weight: bold;
+}
+
+/* CSS for Main Content */
+
+.main-content{
+    padding: 1.5rem 0;
+}
+
+.main-content .wrapper{
+    background-color: gray ;
+}
+
+.main-content .wrapper h1{
+    background-color: gray ;
+}
+
+
+.col-4{
+    width: 16vw;
+    height: 25vh;
+    background-color: white ;
+    border:1px solid black;
+    padding: 0.8rem;
+    margin: 0.6rem;
+    float: left;
+}
+
+.main-content .wrapper .col-4 h1{
+    background-color: white;
+}
+
+/* CSS for Footer*/
+
+.footer{
+    background-color:  #F7F4F2;
+    color: black;
+}

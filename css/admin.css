@@ -92,6 +92,16 @@ table tr td{
 .btn-danger:hover{
     background-color: #ff4757;
 }
+
+.success{
+    background-color: gray ;
+    color: rgb(61, 196, 61);
+}
+
+.error{
+    background-color: gray ;
+    color: rgb(221, 43, 43);
+}
 /*CSS for menu*/
 
 .menu{

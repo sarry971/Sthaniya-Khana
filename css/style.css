@@ -3,7 +3,7 @@
     Theme: Sthaniya Khana
     Version: 1.0
 */
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 *{
     margin: 0 0;
     padding: 0 0;
@@ -132,7 +132,7 @@ a:hover{
     height: 6vh;
     padding: 0.2rem 5vw;
     font-size: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 }
 
 /* CSS for explore food*/

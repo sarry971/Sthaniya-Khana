@@ -43,6 +43,8 @@
                         echo $_SESSION['password-changed'];
                         unset($_SESSION['password-changed']);
                     }
+
+                    
                 ?>
                 <br>
                 <!--Button to Add Admin-->

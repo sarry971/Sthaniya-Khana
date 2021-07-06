@@ -1,10 +1,14 @@
 
 <?php 
-$myRoot = $_SERVER["DOCUMENT_ROOT"];
-//echo $myRoot;
-include('../config/constants.php');
+
+    $myRoot = $_SERVER["DOCUMENT_ROOT"];
+    //echo $myRoot;
+    include('../config/constants.php');
+    include('login-check.php');
 
 ?>
+
+
 <html>
     <head>
         <title>Staniya Khana- Home Page</title> 
@@ -22,6 +26,7 @@ include('../config/constants.php');
                     <li><a href="manage-category.php">Category</a></li>
                     <li><a href="manage-food.php">Food</a></li>
                     <li><a href="manage-order.php">Order</a></li>
+                    <li><a href="logout.php">Logout</a></li>
                 </ul>
 
             </div>    

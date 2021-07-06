@@ -3,7 +3,7 @@
     Theme: Sthaniya Khana - Admin
     Version: 1.0
 */
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 *{
     margin: 0 0;
     padding: 0 0;
@@ -39,7 +39,7 @@
 .tbl-30 input{
     width: 30vw;
     padding: 0.4rem 0 0.4rem 0.6rem;
-    border-radius: 1rem;
+    border-radius: 0.4rem;
 }
 
 .tbl-30 button{
@@ -63,7 +63,7 @@ table tr td{
     padding: 0.4rem;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 1rem;
+    border-radius: 0.4rem;
 }
 .btn-primary:hover{
     background-color: #3742fa;
@@ -75,7 +75,7 @@ table tr td{
     padding: 0.4rem;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 1rem;
+    border-radius: 0.4rem;
 }
 .btn-secondary:hover{
     background-color: #2ed573;
@@ -87,7 +87,7 @@ table tr td{
     padding: 0.4rem;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 1rem;
+    border-radius: 0.4rem;
 }
 .btn-danger:hover{
     background-color: #ff4757;
@@ -105,9 +105,11 @@ table tr td{
 /*CSS for menu*/
 
 .menu{
-    background-color: #F7F4F2 ;
-    border: 1px solid red;  
-    color: black;
+    background-color:black;
+}
+.menu > .wrapper,ul,li, a{
+    background-color: black;
+    color:  #F7F4F2;
 }
 
 .menu ul{
@@ -122,6 +124,7 @@ table tr td{
 .menu ul li a{
     text-decoration: none;
 }
+
 
 .menu ul li a:hover{
     font-size: 1.5rem;
@@ -162,6 +165,61 @@ table tr td{
 /* CSS for Footer*/
 
 .footer{
-    background-color:  #F7F4F2;
+    background-color: black;
+}
+
+.footer >.wrapper,p {
+    background-color: black;
+    color: #F7F4F2;
+}
+
+
+
+
+
+/* CSS for Login*/
+
+.loginScreen{
+    width: 98vw;
+    height: 97vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.loginScreen .carousel{
+    height: 60vh;
+    width: 40vw;
+    border: 1px solid red;
+}
+
+.carousel img{
+    width: 40vw;
+    height:60vh;
+}
+
+.login{
+    border: 1px solid black;
+    width: 20vw;
+    margin: 5%;
+    padding: 2%;
+}
+
+.login .logo{
+    width: 20vw;
+    height: 25vh;
+}
+
+.login form input{
+    margin: 0.5rem;
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+}
+
+.loginfooter{
+    background: white;
     color: black;
 }
+
+

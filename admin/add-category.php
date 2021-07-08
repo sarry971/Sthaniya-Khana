@@ -108,38 +108,43 @@
                    // upload the image 
                    // to upload the image we need image name, source path and destination path
                    $image_name = $_FILES['img']['name'];
+                    // upload the image only if image is selected
 
-                   // auto-renaming the image
-                   // GET the extension of our image (.jpg, .png, .gif, etc) e.g "special-momo.jpg"
-
-                   $ext = end(explode(".", $image_name));
-
-                    if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'gif')
+                    if ($image_name !="")
                     {
-                        // rename the image 
-                        $image_name = 'Food_category_'.rand(000, 999).'.'.$ext; // eg. Food_category_333.jpg;
+                                // auto-renaming the image
+                        // GET the extension of our image (.jpg, .png, .gif, etc) e.g "special-momo.jpg"
 
-                        $source_path = $_FILES['img']['tmp_name'];
+                        $ext = end(explode(".", $image_name));
 
-                        $destination_path = "../images/category/".$image_name;
+                        if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'gif')
+                        {
+                            // rename the image 
+                            $image_name = 'Food_category_'.rand(000, 999).'.'.$ext; // eg. Food_category_333.jpg;
 
-                        // finally upload the image
-                        $upload = move_uploaded_file($source_path, $destination_path);
+                            $source_path = $_FILES['img']['tmp_name'];
+
+                            $destination_path = "../images/category/".$image_name;
+
+                            // finally upload the image
+                            $upload = move_uploaded_file($source_path, $destination_path);
+                        }
+                        
+
+                        // check whether the image is uploaded or not
+                        // if the image is not uploaded the we will stop the process and redirect with error message
+
+                        if ($upload == false)
+                        {
+                            // SET message
+                            $_SESSION['upload'] = '<div class="error">Failed to upload image.</div>';
+
+                            // redirect to add category page.
+                            header('location:'.SETURL.'admin/manage-category.php');
+                            die();
+                        }
                     }
                    
-
-                   // check whether the image is uploaded or not
-                   // if the image is not uploaded the we will stop the process and redirect with error message
-
-                   if ($upload == false)
-                   {
-                        // SET message
-                        $_SESSION['upload'] = '<div class="error">Failed to upload image.</div>';
-
-                        // redirect to add category page.
-                        header('location:'.SETURL.'admin/manage-category.php');
-                        die();
-                   }
                }
 
                else 

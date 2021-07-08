@@ -25,6 +25,12 @@
                 {
                     //echo "Row fetched";
                     // GET the data 
+
+                    $row = mysqli_fetch_assoc($res);
+                    $title = $row['title'];
+                    $curr_img = $row['image_name'];
+                    $featured = $row['featured'];
+                    $active = $row['active'];
                 }
                 else 
                 {
@@ -49,7 +55,7 @@
                 <tr>
                     <td>Title:</td>
                     <td>
-                        <input type="text" name ="title" value="">
+                        <input type="text" name ="title" value="<?php echo $title;?>">
                     </td>
                 </tr>
                 <tr>

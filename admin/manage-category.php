@@ -39,6 +39,30 @@
                     echo $_SESSION['no-category-found'];
                     unset($_SESSION['no-category-found']);
                 }
+
+                if (isset($_SESSION['update']))
+                {
+                    echo $_SESSION['update'];
+                    unset($_SESSION['update']);
+                }
+
+                if (isset($_SESSION['ext-error']))
+                {
+                    echo $_SESSION['ext-error'];
+                    unset($_SESSION['ext-error']);
+                }
+
+                if (isset($_SESSION['failed-img-upload']))
+                {
+                    echo $_SESSION['failed-img-upload'];
+                    unset($_SESSION['failed-img-upload']);
+                }
+
+                if (isset($_SESSION['failed-remove']))
+                {
+                    echo $_SESSION['failed-remove'];
+                    unset($_SESSION['failed-remove']);
+                }
             ?> 
             <br>
 

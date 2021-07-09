@@ -96,7 +96,7 @@
 
     if(isset($_POST['guest']))
     {
-        header('location:'.SETURL.'index.html');
+        header('location:'.SETURL.'index.php');
     }
     
 

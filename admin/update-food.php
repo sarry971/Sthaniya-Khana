@@ -2,6 +2,7 @@
 
 <?php 
 
+    // check whether the id is set or not 
     if(isset($_GET['id']))
     {
         // GET all the details 
@@ -37,10 +38,7 @@
         <h1>Update Food</h1>
         <br>
 
-        <?php
-
-        ?>
-        <form action="" method='post' enctype='multipart/form-data'>
+        <form action="" method='POST' enctype='multipart/form-data'>
             <table class='tbl-30'>
                 <tr>
                     <td>Title:</td>
@@ -51,13 +49,13 @@
                 <tr>
                     <td>Description:</td>
                     <td>
-                        <textarea name="description"  cols="20" rows="5" value="$description" ><?php echo $description;?></textarea>
+                        <textarea name="description"  cols="20" rows="5" ><?php echo $description;?></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>Price:</td>
                     <td>
-                        <input type="number" name='price'  value="<?php echo $price;?>">
+                        <input type="number" name='price' value="<?php echo $price;?>">
                     </td>
                 </tr>
                 <tr>
@@ -88,7 +86,7 @@
                 <tr>
                     <td>Category:</td>
                     <td>
-                        <select name="category" value="<?php echo $category_id;?>">
+                        <select name="category">">
                             
                             <?php
                                 // query to get active categories
@@ -111,44 +109,177 @@
 
                                         // echo "<option value = '$category_id'>$category_title</option>";
                                         ?>
-                                        <option <?php if($current_category == $category_id) {echo "selected";}?> value="<?php echo $category_id;?>"><?php echo $category_title?></option>
+                                        <option <?php if($current_category == $category_id) {echo "selected";}?> value="<?php echo $category_id;?>"><?php echo $category_title;?></option>
                                         <?php
                                     }
                                 }
                                 else 
                                 {
-                                    echo '<option value = "0"> Category Not available.</option>';
+                                    // category not available 
+                                    echo '<option value = "0"> Category Not Available.</option>';
                                 }
                             ?>
-                            
-                            <option value="0">Test</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Featured:</td>
                     <td>
-                        <input <?php if($featured=="yes") { echo "checked";}?> type="radio" name="featured" value='yes'>Yes
-                        <input <?php if($featured=="no") {echo "checked";}?> type="radio" name="featured" value='no'>No
+                        <input <?php if($featured=="Yes") { echo "checked";}?> type="radio" name="featured" value='Yes'>Yes
+                        <input <?php if($featured=="No") {echo "checked";}?> type="radio" name="featured" value='No'>No
                     </td>
                 </tr>
                 <tr>
                     <td>Active:</td>
                     <td>
-                        <input <?php if($active == 'yes') {echo 'checked';}?> type="radio" name="active" value='yes'>Yes
-                        <input <?php if($active == 'no') {echo 'checked';}?> type="radio" name="active" value='no'>No
+                        <input <?php if($active == "Yes") {echo "checked" ;}?> type="radio" name="active" value='Yes'>Yes
+                        <input <?php if($active == "No") {echo "checked" ;}?> type="radio" name="active" value='No'>No
                     </td>
                 </tr>
                 <tr>
                     <td colspan='2'>
                         <input type="hidden" name='id' value='<?php echo $id;?>'>
                         <input type="hidden" name='curr_img' value='<?php echo $curr_img;?>'>
+
                         <button type='submit' name='submit' class='btn-secondary'>Update Category</button>
                     </td>
                 </tr>
             </table>
         </form>
+
+        <?php 
+
+                if (isset($_POST['submit']))
+                {
+                    //echo 'sbumit';
+                    // 1. GET all the details from the form
+                    $id = $_POST['id'];
+                    $title = $_POST['title'];
+                    $description = $_POST['description'];
+                    $price = $_POST['price'];
+                    $curr_img = $_POST['curr_img'];
+                    $category = $_POST['category'];
+
+                    $featured = $_POST['featured'];
+                    $active = $_POST['active'];
+
+                    // 2. Upload the image if selected
+
+                    // check whether upload button is clicked or not 
+                    if (isset($_FILES['new_img']['name']))
+                    {
+                        // upload button clicked
+                        $image_name = $_FILES['new_img']['name']; // new image name 
+
+                        // check whether the file is available or not 
+                        if ($image_name !="")
+                        {
+                            // image is available 
+                            // rename the image 
+                            $ext = end(explode('.', $image_name)); 
+
+                            if ($ext =='jpg' || $ext == 'jpeg' || $ext== 'png' || $ext =='gif' )
+                            {
+                                // A. uploading new image 
+                                $image_name = 'Food_name_'.rand(000,999).'.'.$ext;
+
+                                // source path
+                                $src = $_FILES['new_img']['tmp_name'];
+
+                                //destination path
+                                $dest = '../images/food/'.$image_name;
+
+                                $upload = move_uploaded_file($src, $dest);
+
+                                if ($upload == false)
+                                {
+                                    // redirect to manage food 
+                                    $_SESSION['upload'] = '<div class="error">Failed to upload new image</div>';
+                                    // redirect to manage food page
+                                    header('location:'.SETURL.'admin/mange-food.php');
+                                    // stop the process
+                                    die();
+                                }
+
+                                // 3. Remove the image if new image is uploaded and current image exists
+                                // B. remove current image 
+                                if ($curr_img !='')
+                                {
+                                    // current image is available 
+                                    // remove the image 
+                                    $remove_path = '../images/food/'.$curr_img;
+
+                                    $remove = unlink($remove_path);
+                                    
+                                    // check whether the image is removed or not 
+                                    if ($remove == false)
+                                    {
+                                        // failed to remove current image 
+                                        $_SESSION['remove-curr-img'] = '<div class="error">Failed to remove current image.</div>';
+                                        // redirect to manage-food 
+                                        header('location:'.SETURL.'admin/manage-food.php');
+                                        // stop the process
+                                        die();
+                                    }
+                                }
+                            }
+                            else 
+                            {
+                                $_SESSION['ext-mismatch'] = '<div class="error">Files should be of (.png, .jpg, .jpeg, .gif)</div>';
+                                header('location:'.SETURL.'admin/manage-food.php');
+                            }
+                        }
+                        else 
+                        {
+                            $image_name = $curr_img;
+                        }
+                    }
+                    else 
+                    {
+                        $image_name = $curr_img;
+                    }
+
+                    
+
+                    // 4. update the food in the database
+                    $sql3 = "UPDATE tbl_food SET
+                        title = '$title',
+                        description = '$description',
+                        price = $price,
+                        image_name = '$image_name',
+                        category_id = $category,
+                        featured = '$featured',
+                        active = '$active'
+                        WHERE id = $id
+                    ";
+                    
+                    // execute the query
+                    $res3 = mysqli_query($conn, $sql3);
+
+                    echo $res3;
+                    // check wether the query is executed or not 
+                    if ($res3 == true)
+                    {
+                        // Query is executed and food updated
+                        $_SESSION['update'] = '<div class="success">Food updated successfully</div>';
+                        // 5. redirect to manage food with session message
+                        header('location:'.SETURL.'admin/manage-food.php');
+                    }
+                    else 
+                    {
+                        // Query is executed and food updated
+                        $_SESSION['update'] = '<div class="error">Failed to update food</div>';
+                        // 5. redirect to manage food with session message
+                        header('location:'.SETURL.'admin/manage-food.php');
+                    }
+                    
+                }
+                                
+        ?>
+
+
     </div>
 </div>
 
 <?php include('partials/footer.php');?>
+

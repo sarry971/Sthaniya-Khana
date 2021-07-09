@@ -40,6 +40,21 @@
                     echo $_SESSION['delete'];
                     unset($_SESSION['delete']);
                 }
+                if (isset($_SESSION['upload']))
+                {
+                    echo $_SESSION['upload'];
+                    unset ($_SESSION['upload']);
+                }
+                if (isset($_SESSION['ext-mismatch']))
+                {
+                    echo $_SESSION['ext-mismatch'];
+                    unset($_SESSION['ext-mismatch']);
+                }
+                if (isset($_SESSION['update']))
+                {
+                    echo $_SESSION['update'];
+                    unset($_SESSION['update']);
+                }
             ?>
             <br>
                 <!--Button to Add Admin-->

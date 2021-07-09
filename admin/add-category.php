@@ -39,14 +39,14 @@
                     <tr >
                         <td>Featured:</td>
                         <td>
-                            <input type="radio" name="featured" value="Yes">Yes &nbsp; &nbsp; &nbsp;
+                            <input type="radio" name="featured" value="Yes">Yes
                             <input type="radio" name="featured" value="No">No
                         </td>
                     </tr>
                     <tr>
                         <td>Active:</td>
                         <td>
-                            <input type="radio" name="active" value="Yes">Yes &nbsp; &nbsp; &nbsp;
+                            <input type="radio" name="active" value="Yes">Yes
                             <input type="radio" name="active" value="No">No
                         </td>
                     </tr>
@@ -112,7 +112,7 @@
 
                     if ($image_name !="")
                     {
-                                // auto-renaming the image
+                        // auto-renaming the image
                         // GET the extension of our image (.jpg, .png, .gif, etc) e.g "special-momo.jpg"
 
                         $ext = end(explode(".", $image_name));

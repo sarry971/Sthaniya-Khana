@@ -97,14 +97,14 @@
                 <tr>
                     <td>Featured:</td>
                     <td>
-                        <input type="radio" name='featured' value='yes'>Yes
-                        <input type="radio" name='featured' value='no'>No
+                        <input type="radio" name='featured' value='Yes'>Yes
+                        <input type="radio" name='featured' value='No'>No
                     </td>
                 </tr>
                 <tr>
                     <td>Active</td>
                     <td>
-                        <input type="radio" name='active' value='yes'>Yes
+                        <input type="radio" name='active' value='Yes'>Yes
                         <input type="radio" name='active' value='No'>No
                     </td>
                 </tr>

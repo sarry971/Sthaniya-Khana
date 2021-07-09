@@ -13,6 +13,15 @@
 
     </section>
     <!--food search section ends here-->
+    
+    <?php
+        
+        if (isset($_SESSION['order']))
+        {
+            echo $_SESSION['order'];
+            unset($_SESSION['order']);
+        }
+    ?>
 
     <!--categories section starts here-->
     <section class="categories">
@@ -40,7 +49,7 @@
                         $image_name = $row['image_name'];
                         ?>
                             
-                            <a href="<?php SETURL;?>/categories-food.php?category_id=<?php echo $id;?>">
+                            <a href="<?php SETURL;?>categories-food.php?category_id=<?php echo $id;?>">
                                 <div class="box-1 float-container">
                                     <?php 
                                         // check if the image is available or not 
@@ -76,7 +85,8 @@
 
     </section>
     <!--categories section ends here-->
-
+    
+    
     <!--food menu section starts here-->
     <section class="food-menu">
         <div class="container">
@@ -122,19 +132,20 @@
                                    
                                 </div>
 
-                            <div class="food-menu-desc">
-                                <h4><?php echo $title; ?></h4>
-                                <p class="food-price">Rs. <?php echo $price; ?></p>
-                                <p class="food-details">
-                                    <?php echo $description; ?>
-                                </p>
-                                <br>
+                                <div class="food-menu-desc">
+                                    <h4><?php echo $title; ?></h4>
+                                    <p class="food-price">Rs. <?php echo $price; ?></p>
+                                    <p class="food-details">
+                                        <?php echo $description; ?>
+                                    </p>
+                                    <br>
 
-                            <a href="<?php echo SETURL;?>/order.php" class="btn btn-primary">Order Now</a>
+                                    <a href="<?php echo SETURL;?>order.php?food_id=<?php echo $id;?>" class="btn btn-primary">Order Now</a>
                             
-                        </div>
-                        <div class="clearfix"></div>
-                        </div>
+                                </div>
+                            
+                                <div class="clearfix"></div>
+                            </div>
                         <?php
                     }
                 }

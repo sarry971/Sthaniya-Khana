@@ -2,84 +2,109 @@
 
   
 
-  <?php 
+<?php 
     
     // check whether id is passed or not 
     if (isset($_GET['category_id']))
     {
         // category id is set and get the id 
         $category_id = $_GET['category_id'];
+        // get the category title based on category id 
+        $sql = "SELECT title from tbl_category WHERE id = $category_id";
+
+        // execute the query
+        $res = mysqli_query($conn,$sql);
+
+        // get the value from database 
+        $row = mysqli_fetch_assoc($res);
+        // get the title 
+        $category_title = $row['title'];
+        
+
     }
     else 
     {
         // category not passed 
         // redirect ot home page 
-        header('location:'SETURL);
+        header('location:'.SETURL);
     }
   
   ?>
 
   <!--food search section starts here-->
   <section class="food-search text-center">
-        <h2>Foods on Category</h2>
+        <h2><?php echo $category_title; ?></h2>
 
    </section>
     <!--food search section ends here-->
 
-    <!--categories section starts here-->
-    <section class="categories">
+    <!--food menu section starts here-->
+    <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Explore Foods</h2>
+            <h2 class="text-center">Explore Foods of <?php echo $category_title;?></h2>
             
             <?php
                 // create SQL Query to display categories from database
-                $sql = "SELECT * FROM tbl_category WHERE featured ='Yes' AND active ='Yes' LIMIT 3";
+                $sql2 = "SELECT * FROM tbl_food WHERE category_id = $category_id";
 
                 // Execute the Query
-                $res = mysqli_query($conn, $sql);
+                $res2 = mysqli_query($conn, $sql2);
 
                 // count rows to check wether the category is avaliable or not 
-                $count = mysqli_num_rows($res);
+                $count2 = mysqli_num_rows($res2);
 
-                if ($count>0)
+                if ($count2>0)
                 {
-                    // categories available 
-                    while($row = mysqli_fetch_assoc($res))
+                    // food available 
+                    while ($row2=mysqli_fetch_assoc($res2))
                     {
-                        // get the values like id, image_name
-                        $id = $row['id'];
-                        $title = $row['title'];
-                        $image_name = $row['image_name'];
+                        // get the details 
+                        $id = $row2['id'];
+                        $title = $row2['title'];
+                        $price = $row2['price'];
+                        $description = $row2['description'];
+                        $image_name = $row2['image_name'];
+
                         ?>
-                            
-                            <a href="<?php SETURL;?>/categories-food.php?category_id=<?php echo $id;?>">
-                                <div class="box-1 float-container">
-                                    <?php 
-                                        // check if the image is available or not 
-                                        if ($image_name =='')
-                                        {
-                                            echo '<div class= "error">Image Not available</div>';
-                                        }
-                                        else 
-                                        {
-                                            ?>
-                                            <img src="<?php echo SETURL;?>/images/category/<?php echo $image_name; ?>" class="img-responsive img-curve">
-                                            <?php
-                                        }
-                                    ?>
-                                    
-                                    <h3 class="float-text"><?php echo $title; ?></h3>
-                                </div>
-                            </a>
+                        <div class="food-menu-box">
+                            <div class="food-menu-img">
+                                <?php 
+                                        // chechk whether the image is available or not 
+                                    if ($image_name =="")
+                                    {
+                                        // image not available 
+                                        echo '<div class="error">Image name not available. Stay Tuned!</div>';
+                                    }
+                                    else 
+                                    {
+                                        // image not available 
+                                        ?>
+                                        <img src="<?php echo SETURL;?>images/food/<?php echo $image_name; ?>" class="img-responsive img-curve" width = 150px>
+                                    <?php    
+                                    }
+                                ?>
+                            </div>
+                            <div class="food-menu-desc">
+                                <h4><?php echo $title?></h4>
+                                <p class="food-price">Rs. <?php echo $price?></p>
+                                <p class="food-details">
+                                    <?php echo $description; ?>
+                                </p>
+                                <br>
+
+                                <a href="<?php echo SETURL;?>order.php?food_id=<?php echo $id;?>" class="btn btn-primary">Order Now</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
                         <?php
-                    }
-                }
+                    } 
+                }  
                 else 
                 {
                     // categories not available
                     echo '<div class="error">Category is not added Yet! Stay Tuned.</div>';
                 }
-            
             ?>
             
 

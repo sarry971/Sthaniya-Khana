@@ -85,6 +85,18 @@ a:hover{
     left: 23%;
 }
 
+
+
+.error{
+    padding:2%;
+    color : red;
+}
+
+.success{
+    padding:2%;
+    color: green;
+}
+
 /*CSS for navbar section*/
 
 .container{
@@ -179,8 +191,9 @@ a:hover{
 
 .food-menu img{
     width: 18vw;
-    height: 40vh;
+    height: 36vh;
     float: left;
+    margin-left: 1.4rem;
 }
 
 .food-menu-desc{
@@ -218,15 +231,7 @@ a:hover{
     width: 55vw;
     margin: 1rem auto;
 }
-.order .food-menu-img img{
-    width: 35vw;
-    height: 50vh;
-    margin-top: 2rem;
-}
 
-.order .food-menu-desc{
-    margin-left: 11rem;
-}
 .order-label{
     margin-bottom: 0.4rem; 
     font-weight: bold;

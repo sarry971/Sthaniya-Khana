@@ -24,7 +24,7 @@
                         $title = $row['title'];
                         $image_name = $row['image_name'];
                         ?>
-                            <a href="<?php echo SETURL;?>categories-food.php">
+                            <a href="<?php echo SETURL;?>categories-food.php?category_id=<?php echo $id; ?>">
                                  <div class="box-1 float-container">
                                     
                                     <?php

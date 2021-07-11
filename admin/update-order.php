@@ -53,14 +53,14 @@
         }
     ?>
     <form action="" method="POST">
-        <table class='tbl-30'>
+        <table class="tbl-full">
             <tr>
                 <td>Food Name:</td>
-                <td><?php echo $food; ?></td>
+                <td><b><?php echo $food; ?></b></td>
             </tr>
             <tr>
                 <td>Price:</td>
-                <td><?php echo $price; ?></td>
+                <td><b>Rs. <?php echo $price; ?></b></td>
             </tr>
             <tr>
                 <td>Quantity:</td>
@@ -72,10 +72,10 @@
                 <td>Status:</td>
                 <td>
                     <select name="status">
-                        <option value="Ordered">Ordered</option>
-                        <option value="On Delivery">On Delivery</option>
-                        <option value="Delivered">Delivered</option>
-                        <option value="Cancelled">Cancelled</option>
+                        <option <?php if($status == "Ordered") {echo "selected"; } ?> value="Ordered">Ordered</option>
+                        <option <?php if($status == "On The Way") {echo "selected"; } ?> value="On The Way">On The Way</option>
+                        <option <?php if($status == "Delivered") {echo "selected"; } ?> value="Delivered">Delivered</option>
+                        <option <?php if($status == "Cancelled") {echo "selected"; } ?> value="Cancelled">Cancelled</option>
                     </select>
                 </td>
             </tr>
@@ -121,9 +121,9 @@
             // echo "clciked";
             // Get all the values from form
             $id = $_POST['id'];
-            $food = $_POST['food'];
-            $qty = $_POST['qty'];
+            // $food = $_POST['food'];
             $price = $_POST['price'];
+            $qty = $_POST['qty'];
 
             $total = $qty * $price ;
             
@@ -136,7 +136,7 @@
 
             // update the values 
 
-            $sql2 = "INSERT INTO tbl_food SET 
+            $sql2 = "UPDATE tbl_order SET 
                 qty = $qty,
                 status = '$status',
                 customer_name = '$customer_name',
@@ -146,7 +146,8 @@
                 total = $total
                 WHERE id = $id
             ";
-
+                // echo $sql2;
+                // die();
             // execute the query
             $res2 = mysqli_query($conn, $sql2);
 

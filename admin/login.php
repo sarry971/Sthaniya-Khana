@@ -6,16 +6,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/favicon.jpg" width="100%" type="image/x-icon">
     <link rel="stylesheet" href="../css/admin.css">
     <title>Sthaniya Khana - Login</title>
 </head>
 <body>
     <div class="loginScreen">
         <div class="carousel">
-            <img src="../images/burger.jpg" alt="">
+            
         </div>
-
-        
 
         <div class="login text-center">
             <div class="logo">
@@ -36,12 +35,19 @@
                     unset($_SESSION['no-login-message']);
                 }
 
+                if(isset($_SESSION['added_admin']))
+                {
+                    echo $_SESSION['added_admin'];
+                    unset($_SESSION['added_admin']);
+                }
+
             ?>
 
             <form action="" method = "POST" class= "text-center">
                 <input type="text" name="username" placeholder="Enter your Username">
                 <input type="password" name="password" placeholder="Enter your password"><br>
                 <button type="submit"  name="submit" class="btn-primary">Login As Admin</button>
+                <button type="signup"  name="signup" class="btn-primary">SignUp As Admin</button><br><br>
                 <button type="guest"  name="guest" class="btn-secondary">Visit As Guest</button>
             </form>
             <!-- Login Form ends here -->
@@ -54,6 +60,11 @@
 </html>
 
 <?php
+
+    if (isset($_POST['signup']))
+    {
+        header('location:'.SETURL.'admin/signup.php');
+    }
     // check whether the submit button is clicked or not 
 
     if (isset($_POST['submit']))
@@ -61,7 +72,7 @@
         // process for login
         // 1. GET the data from login form 
 
-        $username = $_POST['username'];
+        $username = mysqli_real_escape_string($conn,$_POST['username']);
         $password = md5($_POST['password']);
      
         // 2. SQL to check whether the user with username and password exists or not 

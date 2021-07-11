@@ -1,12 +1,15 @@
 <?php include('partials-front/navbar.php');?>
 
+    
     <!--food search section starts here-->
     <section class="categories text-center">
         <div class="container">
 
-            <h2 class="text-center text-white">Fill this form to complete order.</h2>
+            <h2 class="text-center">Fill this form to complete order.</h2>
 
             <?php
+
+                
 
                 if (isset($_GET['food_id']))
                 {
@@ -71,8 +74,8 @@
                         <h3><?php echo $title;?></h3><br>
                         <input type="hidden" name="food" value="<?php echo $title;?>">
 
-                        <p class="food-price">Rs. <?php echo $price; ?></p><br>
-                        <input type="hidden" name="price" value="<?php echo $price; ?>">       
+                        <p>Rs.<?php echo " ".$price;?></p><br>
+                        <input type="hidden" name="price" value="<?php echo $price;?>">       
 
                         <div class="order-label">Quantity</div>
                         <input type="number" name="qty" class="input-responsive text-center" value="1" required>
@@ -144,12 +147,26 @@
                     if ($res2 == true)
                     {
                         // query executed and order saved 
-                        $_SESSION['order'] ='<div class="success text-center">Your order has been placed successfully.</div>';
-                        header('location:'.SETURL);
+                        $_SESSION['order'] ='<div class="success text-center">Your order has been placed successfully.Pay Now to confirm your Order</div>';
+
+                        // get the order id 
+                        $sql3 = "SELECT id FROM tbl_order";
+
+                        // execute the query
+                        $res3 =mysqli_query($conn, $sql3);
+
+                        // fetch current row
+                        $row3 = mysqli_fetch_assoc($res3);
+
+                        // get the order id
+                        $order_id = $row3['id'];
+
+                        // redirect to payment page
+                        header('location:'.SETURL.'payment.php?order_id='.$order_id);
                     }
                     else 
                     {
-                        $_SESSION['order'] = '<div class="error text-center">Failed to place order. Please Try Again :)</div>';
+                        $_SESSION['order-failed'] ='<div class="error text-center">Failed to place order. Please Try Again</div>';
                         header('location:'.SETURL);
                     }
                 }

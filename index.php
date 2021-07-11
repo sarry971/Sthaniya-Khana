@@ -13,13 +13,11 @@
 
     </section>
     <!--food search section ends here-->
-    
-    <?php
-        
-        if (isset($_SESSION['order']))
+    <?php 
+        if(isset($_SESSION['order-failed']))
         {
-            echo $_SESSION['order'];
-            unset($_SESSION['order']);
+            echo $_SESSION['order-failed'];
+            unset($_SESSION['order-failed']);
         }
     ?>
 

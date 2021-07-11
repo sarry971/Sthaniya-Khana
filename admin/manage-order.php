@@ -12,7 +12,7 @@
 
                 if (isset($_SESSION['updated']))
                 {
-                    $_SESSION['updated'];
+                    echo $_SESSION['updated'];
                     unset($_SESSION['updated']);
                 }
             ?>
@@ -76,7 +76,7 @@
                                             {
                                                 echo "<label>$status</label>";
                                             }
-                                            else if ($status == "On Delivery")
+                                            else if ($status == "On The Way")
                                             {
                                                 echo "<label style='color: orange'>$status</label>";
                                             }
@@ -97,7 +97,6 @@
                                     <td><?php echo $customer_address; ?></td>
                                     <td>
                                         <a href="<?php echo SETURL;?>admin/update-order.php?id=<?php echo $id; ?>" class="btn-secondary">Update Order</a>
-                                        
                                     </td>
                                 </tr>
                              <?php   
@@ -119,5 +118,5 @@
 
 <!--Main Category ends>
 
-<!--Footer starts-->
+<! --Footer starts-->
 <?php include('partials/footer.php') ;?>        

@@ -8,7 +8,7 @@
             <?php 
                                
                 // Get the search keyword 
-                $search = $_POST['search'];
+                $search = mysqli_real_escape_string($conn, $_POST['search']); // to prevent SQL Injection
                 
                 ?>
                 
@@ -26,6 +26,8 @@
 
                 <?php
                 // sql query to get food based on search keyword;
+                // $search = momo' ; DROP database name;
+                // "SELECT * FROM tbl_food WHERE title LIKE '%momo'%' OR description LIKE '%momo%'";
                 $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
 
                 // execute the query 
@@ -74,7 +76,7 @@
                                 </p>
                                 <br>
 
-                                <a href="<?php echo SETURL;?>/order.php" class="btn btn-primary">Order Now</a>
+                                <a href="<?php echo SETURL;?>order.php?food_id=<?php echo $id;?>" class="btn btn-primary">Order Now</a>
                             </div>
                             <div class="clearfix"></div>
                         </div>

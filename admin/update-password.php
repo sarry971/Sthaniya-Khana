@@ -83,7 +83,7 @@
                     ";
 
                     // check whether the query executed or not
-                        $res2 = mysqli_query($conn, $sql2);
+                    $res2 = mysqli_query($conn, $sql2);
                     if ($res2 == true)
                     {
                         // display the success message

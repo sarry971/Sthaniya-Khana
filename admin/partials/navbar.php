@@ -13,6 +13,7 @@
     <head>
         <title>Staniya Khana- Home Page</title> 
 
+        <link rel="icon" href="../images/favicon.jpg" type="image/x-icon">
         <link rel= "stylesheet" href="../css/admin.css">
     </head>
 

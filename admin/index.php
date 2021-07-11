@@ -16,28 +16,81 @@
                     }
                 ?>
                 <div class="col-4 text-center">
-                    <h1>5</h1>
+                    
+                    <?php 
+                        // sql query to display categories
+                        $sql = "SELECT * FROM tbl_category";
+
+                        // execute the query
+                        $res = mysqli_query($conn, $sql);
+
+                        // count total number of rows 
+                        $count = mysqli_num_rows($res);
+                    ?>
+                    <h1><?php echo $count;?></h1>
                     <br/>
                     Categories
                 </div>
                 
                 <div class="col-4 text-center">
-                    <h1>5</h1>
+                
+                    <?php 
+                        // sql query to display categories
+                        $sql2 = "SELECT * FROM tbl_food";
+
+                        // execute the query
+                        $res2 = mysqli_query($conn, $sql2);
+
+                        // count total number of rows 
+                        $count2 = mysqli_num_rows($res2);
+                    ?>
+
+                    <h1><?php echo $count2; ?></h1>
                     <br/>
-                    Categories
+                    Foods
                 </div>
 
                 <div class="col-4 text-center">
-                    <h1>5</h1>
+                
+                    <?php 
+                        // sql query to display categories
+                        $sql3 = "SELECT * FROM tbl_order";
+
+                        // execute the query
+                        $res3 = mysqli_query($conn, $sql3);
+
+                        // count total number of rows 
+                        $count3 = mysqli_num_rows($res3);
+                    ?>
+
+                    <h1><?php echo $count3; ?></h1>
                     <br/>
-                    Categories
+                    Total Orders
                 </div>
 
                 
                 <div class="col-4 text-center">
-                    <h1>5</h1>
+
+                    <?php 
+
+                        // create SQL Query to get total revenue generated
+                        // aggregate function in SQL
+                        $sql4 = "SELECT SUM(total) AS Total FROM tbl_order WHERE status = 'Delivered'";
+                        
+                        // execute the query 
+                        $res4 = mysqli_query($conn, $sql4);
+
+                        // get the value 
+                        $row4 =mysqli_fetch_assoc($res4);
+
+                        // Get the total revenue 
+                        $total_revenue = $row4['Total'];
+
+                        
+                    ?>
+                    <h1>Rs. <?php echo $total_revenue;?></h1>
                     <br/>
-                    Categories
+                    Revenue Generated
                 </div>
                 
 
